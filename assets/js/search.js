@@ -1,18 +1,26 @@
-// Client-side search (no backend needed)
-document.getElementById('search-input').addEventListener('input', (e) => {
-  const term = e.target.value.toLowerCase();
-  const results = document.getElementById('search-results');
-  results.innerHTML = '';
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
 
-  if (term.length < 2) return;
+  searchInput.addEventListener('input', () => {
+    const term = searchInput.value.toLowerCase();
+    searchResults.innerHTML = '';
 
-  // Search posts (Jekyll's native search)
-  {% for post in site.posts %}
-    if ("{{ post.title | downcase }}".includes(term) || 
-        "{{ post.content | downcase }}".includes(term)) {
-      results.innerHTML += `
-        <a href="{{ post.url }}">{{ post.title }}</a>
-      `;
-    }
-  {% endfor %}
+    if (term.length < 2) return;
+
+    // Search through all posts
+    {% for post in site.posts %}
+      const postTitle = "{{ post.title | downcase }}";
+      const postContent = "{{ post.content | strip_html | downcase }}";
+      
+      if (postTitle.includes(term) || postContent.includes(term)) {
+        searchResults.innerHTML += `
+          <a href="{{ post.url | relative_url }}" class="search-item">
+            <h4>{{ post.title }}</h4>
+            <small>{{ post.date | date: "%b %d, %Y" }}</small>
+          </a>
+        `;
+      }
+    {% endfor %}
+  });
 });
