@@ -3,7 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const navMenu = document.querySelector('.nav-menu');
 
   hamburger.addEventListener('click', () => {
+    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', !isExpanded);
+    hamburger.textContent = isExpanded ? '☰' : '✕';
     navMenu.classList.toggle('active');
-    hamburger.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
   });
 });
