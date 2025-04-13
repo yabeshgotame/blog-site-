@@ -1,0 +1,12 @@
+name: Auto-Update
+   on:
+     schedule:
+       - cron: '0 12 * * *'  # Runs daily
+     push:
+   jobs:
+     update:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v4
+         - run: date > _data/last_update.txt
+         - uses: stefanzweifel/git-auto-commit-action@v4
