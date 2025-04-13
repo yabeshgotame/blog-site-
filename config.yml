@@ -1,3 +1,4 @@
-theme: jekyll-theme-minimal
-   plugins:
-     - jekyll-remote-theme
+title: "Mero Goreto"
+   description: "Daily life suggestions"
+   theme: jekyll-theme-minimal
+   plugins: [jekyll-feed]
