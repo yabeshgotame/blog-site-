@@ -10,3 +10,4 @@
    - 💻 **Code Tutorials:** Try examples directly
    
    [View My Projects](/projects)
+![Last Updated](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/[yourusername]/[yourusername].github.io/main/_data/last_update.txt&label=Site%20Updated&query=%24&color=blue)
