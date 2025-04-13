@@ -1,4 +1,6 @@
 title: "Mero Goreto"
-   description: "Daily life suggestions"
-   theme: jekyll-theme-minimal
-   plugins: [jekyll-feed]
+description: "Daily life solutions"
+theme: jekyll-theme-minimal
+plugins: [jekyll-feed]
+baseurl: "" # Leave empty for custom domains
+url: "https://yabeshgotame.github.io/blog-site-/" # Replace with your URL
